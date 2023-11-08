@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="imp-12_1" author="v.verbivskyi">
+        <createTable tableName="users">
+            <column name="id" type="uuid">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="create_date" type="timestamp"/>
+            <column name="update_date" type="timestamp"/>
+            <column name="username" type="text">
+                <constraints unique="true"/>
+            </column>
+            <column name="password" type="text"/>
+            <column name="user_type" type="text"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="imp-12_1_data" author="v.verbivskyi" runAlways="true">
+        <loadUpdateData file="../data/admin-users.csv" relativeToChangelogFile="true"
+                        tableName="users" primaryKey="id"/>
+    </changeSet>
+</databaseChangeLog>
