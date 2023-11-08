@@ -1,0 +1,15 @@
+spring:
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/improdisc
+    username: postgres
+    password: postgres
+  liquibase:
+    change-log: db/changelog/db.changelog-master.xml
+jwt:
+  login:
+    secret: B34EDB84BA7B638683FB4DFFC3F74E5E05219AA44D9E7FE96CD504E96E0CC861
